@@ -29,3 +29,8 @@
 #define MATRIX_COLS 12
 
 #define DIODE_DIRECTION COL2ROW
+
+/* audio stuff */
+#define QMK_SPEAKER C6
+#define AUDIO_VOICES
+#define C6_AUDIO
