@@ -25,4 +25,3 @@
 #define AdafruitBleCSPin B4
 #define AdafruitBleIRQPin E6
 
-#define MUSIC_MAP

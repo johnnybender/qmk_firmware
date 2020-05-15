@@ -28,9 +28,23 @@
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 12
 
+/* diodes */
 #define DIODE_DIRECTION COL2ROW
 
 /* audio stuff */
 #define QMK_SPEAKER C6
 #define AUDIO_VOICES
 #define C6_AUDIO
+#define MUSIC_MAP
+#define STARTUP_SONG SONG(PLANCK_SOUND)
+#define ENCODER_RESOLUTION 4
+#define MIDI_BASIC
+#define MIDI_ADVANCED
+
+/* save space */
+#define NO_ACTION_TAPPING
+#define NO_ACTION_ONESHOT
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
+#define NO_DEBUG
+#define NO_PRINT
