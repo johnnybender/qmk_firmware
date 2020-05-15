@@ -2,6 +2,7 @@
 
 #include QMK_KEYBOARD_H
 #include "muse.h"
+#define DAC_SAMPLE_MAX 30000U
 
 enum layers {
   _DEFAULT,
@@ -10,9 +11,13 @@ enum layers {
   _ADJUST
 };
 
-/* #define _DEFAULT 0
-#define _LOWER 1
-#define _RAISE 2 */
+int musicvol = 5;
+
+enum my_keycodes {
+  MUSICUP = SAFE_RANGE,
+  MUSICDOWN
+};
+
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 
@@ -95,6 +100,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 } */
+
+/* bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case MUSICUP:
+      if (record->event.pressed) {
+        #undef DAC_SAMPLE
+        #define DAC_SAMPLE 65535U
+      } else {
+        // Do something else when release
+      }
+      return false; // Skip all further processing of this key
+    case MUSICDOWN:
+      // Play a tone when enter is pressed
+      if (record->event.pressed) {
+        PLAY_NOTE_ARRAY(tone_qwerty);
+      }
+      return true; // Let QMK send the enter press/release events
+    default:
+      return true; // Process all other keycodes normally
+  }
+}
+*/
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
